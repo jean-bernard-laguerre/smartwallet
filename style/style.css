@@ -202,11 +202,11 @@ table td {
     vertical-align: middle;
 }
 
-.Credit {
+.Debit {
     background-color: rgba(203, 137, 99, 0.3)
 }
 
-.Debit {
+.Credit {
     background-color: rgba(149, 195, 117, 0.3)
 }
 
