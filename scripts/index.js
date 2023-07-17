@@ -6,37 +6,18 @@ document.addEventListener("DOMContentLoaded", ()=> {
     .then(data => data.json())
     .then(response => {
 
-        let creditAmounts = []
-        let debitAmounts = []
-        let creditCategories = []
-        let debitCategories = []
-
-        let creditTransactionAmounts = []
-        let debitTransactionAmounts = []
-        let creditTransactionCategories = []
-        let debitTransactionCategories = []
-
-
-        response.AllCredit.forEach(transaction => {
-            creditTransactionAmounts.push(Number(transaction.amount))
-            creditTransactionCategories.push(transaction.date)
-        });
-
-        response.AllDebit.forEach(transaction => {
-            debitTransactionAmounts.push(Number(transaction.amount))
-            debitTransactionCategories.push(transaction.date)
-        });
+        console.log()
 
         const data = {
-            labels: debitTransactionCategories,
+            labels: response.AllDebit.map(row => row.date),
             datasets: [{
                 label: "Credit",
-                data: creditTransactionAmounts,
+                data: response.AllCredit.map(row => row.amount),
                 borderColor: "green",
                 fill: false
               },{
                 label: "Debit",
-                data: debitTransactionAmounts,
+                data: response.AllDebit.map(row => row.amount),
                 borderColor: "red",
                 fill: false
               }]
